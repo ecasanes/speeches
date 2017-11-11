@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <div class="modal-headline">
+        <h5 class="modal-title">Share Speech</h5>
+        <span class="instruction">Fill up email address.</span>
+    </div>
+
+</div>
+<div class="modal-body">
+  <div class="form-group">
+      <label>Email</label>
+      <input type="email" required class="form-control" [(ngModel)]="email">
+  </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="onDismiss()">Close</button>
+    <button type="button" class="btn btn-success" (click)="onSend(speech)">Send</button>
+</div>

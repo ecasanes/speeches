@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+
+
+            <div class="card list-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        List of Speeches
+                    </div>
+                </div>
+                <div class="card-body">
+
+
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let speech of speeches; let i = index;"
+
+                            [routerLink]="['/speeches/'+i]"
+                            [class.active]="currentSpeechIndex==i">
+                            {{speech.title}}
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-xs-12 col-md-9">
+            <app-speech-form
+                    [speech]="currentSpeech"
+                    [index]="currentSpeechIndex"
+                    (onDeleteSpeech)="deleteSpeech($event)"
+                    (onSaved)="updateSpeech($event);"></app-speech-form>
+        </div>
+
+    </div>
+</div>
+

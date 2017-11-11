@@ -1,0 +1,73 @@
+<div class="card form-card">
+
+    <div class="card-header">
+        <h4 class="card-title" *ngIf="!isNew">Speech Details</h4>
+        <h4 class="card-title" *ngIf="isNew">Create New Speech</h4>
+    </div>
+    <div class="card-body">
+
+        <div *ngIf="!hasRequiredFields" class="alert alert-danger" role="alert">
+            <strong>Not Saved!</strong> Please Input Required Fields
+            <button (click)="hasRequiredFields=true" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="form-group">
+            <label>Title<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="speech.title">
+        </div>
+
+        <div class="form-group">
+            <label>Speech Text<span class="text-danger">*</span></label>
+            <textarea class="form-control" [(ngModel)]="speech.text"></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-group">
+                    <label>Author</label>
+                    <input class="form-control" type="text" [(ngModel)]="speech.author">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <label>Subject area keywords</label>
+                    <input class="form-control" type="text" [(ngModel)]="speech.keywords">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="form-group">
+                    <label>Date</label>
+
+                    <div class="input-group">
+                        <input class="form-control" [ngClass]="{'form-control-danger': !isValidDate(speech.date) && date.invalid && date.dirty}" placeholder="yyyy-mm-dd"
+                               name="date" [(ngModel)]="speech.date" ngbDatepicker #date="ngbDatepicker">
+                        <button class="input-group-addon" (click)="date.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <!--<input class="form-control" type="text" class="form-control" name="date" [(ngModel)]="speech.date"
+                           placeholder="yyyy-mm-dd" ngbDatepicker #date="ngbDatepicker" (click)="date.toggle()">-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer" *ngIf="(!isNew && index>=0) || isNew">
+        <div class="pull-right">
+            <div *ngIf="!isNew && index>=0">
+                <button (click)="onDelete()" class="btn btn-danger">Delete</button>
+                <button (click)="onSave()" class="btn btn-primary">Save</button>
+                <button (click)="onShare(speech)" class="btn btn-success">Share</button>
+            </div>
+            <div *ngIf="isNew">
+                <button (click)="onSubmit()" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    </div>

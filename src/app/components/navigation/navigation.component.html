@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Speeches</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+            <li class="nav-item" [class.active]="router.url=='/speeches'">
+                <a class="nav-link" [routerLink]="['/speeches']">
+                    View my Speeches
+                </a>
+            </li>
+
+            <li class="nav-item" [class.active]="router.url=='/new'">
+                <a class="nav-link" [routerLink]="['/new']">
+                    Submit a New Speech
+                </a>
+            </li>
+
+            <li class="nav-item" [class.active]="router.url=='/search'">
+                <a class="nav-link" [routerLink]="['/search']">
+                    Search all Speeches
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>

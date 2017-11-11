@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "text": "hello world",
+    "author": "Ernest",
+    "keywords": [
+      "a",
+      "b",
+      "c"
+    ],
+    "date": {
+      "month":11,
+      "day":9,
+      "year":2017
+    }
+  },
+  {
+    "id": 2,
+    "text": "testing",
+    "author": "Oliver",
+    "keywords": [
+      "c",
+      "d",
+      "e"
+    ],
+    "date": {
+      "month":11,
+      "day":8,
+      "year":2017
+    }
+  }
+]
